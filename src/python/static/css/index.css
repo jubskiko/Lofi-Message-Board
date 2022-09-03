@@ -1,0 +1,64 @@
+.title {
+  text-align: center;
+}
+
+body {
+  background-color: #9D723D;
+  color: #FB4A;
+  text-shadow: 2px 2px gray;
+}
+
+h2 {
+    font-size: 42px;
+}
+
+a {
+  text-decoration: none; /* no underline */
+  color: #FB4A;
+  font-size: 30px;
+}
+
+a:: hover {
+    color: white;
+}
+
+#title-submit {
+    width:90vw;
+    height: 5vh;
+}
+
+#body-submit {
+    width:90vw;
+    height: 10vh;
+}
+
+.submit-button {
+    display: inline;
+    width: 7vw;
+    height: 5vh;
+    background-color:#1E4C50;
+    color: white;
+    font-size: 1em;
+}
+
+.add-button {
+    display: inline;
+    width: 10vw;
+    height:10vh;
+    background-color:#1E4C50;
+    color: white;
+    font-size: 1em;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.center {
+display: flex;
+margin-left: auto;
+margin-right: auto;
+flex-direction: column;
+justify-content: center;
+align-items:center;
+}
