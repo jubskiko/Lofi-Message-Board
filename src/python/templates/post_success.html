@@ -9,8 +9,16 @@
     <title>{{ title }}</title>
 </head>
 
-<body>
+<body onload="FUNCTION()">
     <h1>Post {{ result }}!</h1>
 </body>
+
+<script>
+document.addEventListener("load", FUNCTION);
+
+function FUNCTION() {
+    history.back()
+}
+</script>
 
 </html>
