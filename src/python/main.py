@@ -2,7 +2,7 @@ import time
 import uuid
 import bleach
 
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request
 
 SITE_TITLE = 'Lofi Hip-Hop Enjoyers Messageboard'
 app = Flask(__name__)
@@ -39,9 +39,20 @@ class Topic():
 def homepage():
     return render_template('index.html', title=SITE_TITLE, posts=topics)
 
+@app.route('/topic/<id>')
+def viewtopic(id):
+    for topic in topics:
+        if topic.uuid == id:
+            post = topic
+            break
+    else:
+        return render_template('post_success.html', result = 'Failed')
 
-@app.route('/post', methods=['POST'])
-def makepost():
+    return render_template('post.html', post=post, site_title=SITE_TITLE)
+
+
+@app.route('/maketopic', methods=['POST'])
+def maketopic():
     form = request.form.to_dict()
     for k in form.keys():  # escape anything nasty
         form[k] = bleach.clean(form[k])
@@ -55,7 +66,7 @@ def makepost():
     return render_template('post_success.html', result='Successful' if success else 'Failed')
 
 
-@app.route('/reply/<id>', methods=['POST'])
+@app.route('/makereply/<id>', methods=['POST'])
 def makereply(id):
     form = request.form.to_dict()
     for k in form.keys():  # escape anything nasty

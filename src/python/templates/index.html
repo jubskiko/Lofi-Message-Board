@@ -10,7 +10,7 @@
 
     <body>
       <h1>{{ title }}</h1>
-      <form method="post" action="/post">
+      <form method="post" action="/maketopic">
           <input name="title" type="text" title="Post title"><br>
           <textarea name="body"></textarea><br>
           <input type="submit">
@@ -18,7 +18,7 @@
       <h2>Posts</h2>
       <div id="posts">
           {% for post in posts %}
-            {{ post.render()|safe }}
+          <a href="{{ url_for('viewtopic', id=post.uuid) }}">{{ post.title }}</a><br>
           {% endfor %}
       </div>
     </body>

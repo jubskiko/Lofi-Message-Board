@@ -7,11 +7,11 @@
 	<h4>Replies</h4>
 	<div id="replies">
 		{% for reply in replies %}
-			{{ reply.render()|safe }}
+		{{ reply.render()|safe }}<br>
 		{% endfor %}
 	</div>
 	<div id="post_reply">
-		<form method="post" action="/reply/{{ post_id }}">
+		<form method="post" action="/makereply/{{ post_id }}">
 			<textarea name="body"></textarea><br>
 			<input type="submit">
 		</form>
