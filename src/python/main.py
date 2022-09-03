@@ -6,10 +6,8 @@ import bleach
 
 from flask import Flask, render_template, request
 
-SITE_TITLE = 'Lofi Hip-Hop Enjoyers Messageboard'
+SITE_TITLE = 'The Lofi Hip-Hop Enjoyers Messageboard'
 app = Flask(__name__)
-topics = []
-
 
 class Reply:
     def __init__(self, body, image=None) -> None:
@@ -84,17 +82,6 @@ def write():
         outfile.write(json.dumps(d, indent=2, separators=(',', ': ')))
 
 
-# create the db if it does not exist
-if not os.path.exists('db.json'):
-    with open(f'db.json', 'w') as outfile:
-        outfile.write('{}')
-
-# open in readonly mode
-with open(f'db.json', 'r') as infile:
-    print(infile)
-    j = json.load(infile)
-    for k, v in j.items():
-        topics.append(Topic.from_dict(k, v))
 
 @app.route('/')
 def homepage():
@@ -154,5 +141,15 @@ def makereply(id):
     return render_template('post_success.html', result='Successful' if success else 'Failed')
 
 
-if __name__ == '__main__':
-    pass
+topics = []
+# create the db if it does not exist
+if not os.path.exists('db.json'):
+    with open(f'db.json', 'w') as outfile:
+        outfile.write('{}')
+
+# read topics from disk
+with open(f'db.json', 'r') as infile:
+    print(infile)
+    j = json.load(infile)
+    for k, v in j.items():
+        topics.append(Topic.from_dict(k, v))
