@@ -1,0 +1,15 @@
+a {
+    color: black;
+    text-decoration: none; /* no underline */
+  }
+
+a:hover {
+    color:blue;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}

@@ -1,0 +1,20 @@
+.post-with-image {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    width: 80vw;
+    height: 25vh;
+    border: 10px;
+}
+
+.head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.body {
+    display: flex;
+    flex-direction: row;
+
+}
