@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="../static/css/index.css">
+</head>
+
+<body>
+<div id="center">
+  <h1 class="title">{{ title }}</h1>
+  <button class="add-button" onclick="unhideForm()">New Post</button>
+  <form method="post" action="/maketopic" class="input hidden">
+    <input name="title" type="text" title="Post title" id="title-submit">
+    <br>
+    <br>
+    <textarea name="body" id="body-submit"></textarea>
+    <input type="submit" class="submit-button" onclick="hidePost()">
+  </form>
+  <h2>Posts</h2>
+  <div id="posts">
+    {% for post in posts %}
+    <a href="{{ url_for('viewtopic', id=post.uuid) }}">{{ post.title }}</a><br>
+    {% endfor %}
+  </div>
+</div>
+  <script>
+    function unhideForm() {
+       const el = document.querySelector('.hidden');
+       el.classList.remove("hidden");
+       const addBtn = document.querySelector('.add-button');
+       addBtn.classList.add("hidden");
+    }
+
+    function hidePost() {
+       const el = document.querySelector('.hidden');
+       el.classList.remove("hidden");
+       const addBtn = document.querySelector('.input');
+       addBtn.classList.add("hidden");
+    }
+
+  </script>
+
+</body>
+
+</html>
