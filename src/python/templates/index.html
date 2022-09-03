@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="/css/style.css">
-        <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png">
-        <title>{{ title }}</title> 
-    </head>
 
-    <body>
-      <h1>{{ title }}</h1>
-      <form method="post" action="/maketopic">
-          <input name="title" type="text" title="Post title"><br>
-          <textarea name="body"></textarea><br>
-          <input type="submit">
-      </form>
-      <h2>Posts</h2>
-      <div id="posts">
-          {% for post in posts %}
-          <a href="{{ url_for('viewtopic', id=post.uuid) }}">{{ post.title }}</a><br>
-          {% endfor %}
-      </div>
-    </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png">
+  <title>{{ title }}</title>
+</head>
+
+<body>
+  <h1>{{ title }}</h1>
+  <form method="post" action="/maketopic">
+    <input name="title" type="text" title="Post title"><br>
+    <textarea name="body"></textarea><br>
+    <input type="submit">
+  </form>
+  <h2>Posts</h2>
+  <div id="posts">
+    {% for post in posts %}
+    <a href="{{ url_for('viewtopic', id=post.uuid) }}">{{ post.title }}</a><br>
+    {% endfor %}
+  </div>
+</body>
+
 </html>

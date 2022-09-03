@@ -10,8 +10,8 @@ topics = []
 
 
 class Reply():
-    def __init__(self, body, image = None) -> None:
-        self.time:int = int(time.time())
+    def __init__(self, body, image=None) -> None:
+        self.time: int = int(time.time())
         self.body: str = body
         self.image = image
 
@@ -20,9 +20,9 @@ class Reply():
 
 
 class Topic():
-    def __init__(self, title, body, image = None) -> None:
+    def __init__(self, title, body, image=None) -> None:
         self.uuid = str(uuid.uuid4().int)
-        self.time:int = int(time.time())
+        self.time: int = int(time.time())
         self.title: str = title
         self.body: str = body
         self.image = image
@@ -39,6 +39,7 @@ class Topic():
 def homepage():
     return render_template('index.html', title=SITE_TITLE, posts=topics)
 
+
 @app.route('/topic/<id>')
 def viewtopic(id):
     for topic in topics:
@@ -46,7 +47,7 @@ def viewtopic(id):
             post = topic
             break
     else:
-        return render_template('post_success.html', result = 'Failed')
+        return render_template('post_success.html', result='Failed')
 
     return render_template('post.html', post=post, site_title=SITE_TITLE)
 
