@@ -149,7 +149,6 @@ if not os.path.exists('db.json'):
 
 # read topics from disk
 with open(f'db.json', 'r') as infile:
-    print(infile)
     j = json.load(infile)
     for k, v in j.items():
         topics.append(Topic.from_dict(k, v))
