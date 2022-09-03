@@ -90,6 +90,5 @@ def makereply(id):
 
     return render_template('post_success.html', result='Successful' if success else 'Failed')
 
-
 if __name__ == '__main__':
     pass
