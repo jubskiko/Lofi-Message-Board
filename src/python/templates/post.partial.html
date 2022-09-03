@@ -1,0 +1,19 @@
+<div id="post">
+	{% if image != None %}
+	<img src="{{ image }}"/>
+	{% endif %}
+	<h3>{{ title }}</h3>
+	<p>{{ body }}</p>
+	<h4>Replies</h4>
+	<div id="replies">
+		{% for reply in replies %}
+			{{ reply.render()|safe }}
+		{% endfor %}
+	</div>
+	<div id="post_reply">
+		<form method="post" action="/reply/{{ post_id }}">
+			<textarea name="body"></textarea><br>
+			<input type="submit">
+		</form>
+	</div>
+</div>
