@@ -23,13 +23,15 @@ a:: hover {
 }
 
 #title-submit {
-    width:90vw;
-    height: 5vh;
+    width: 35vw;
+    height: 2em;
+    text-align: center;
 }
 
 #body-submit {
-    width:90vw;
+    width: 45vw;
     height: 10vh;
+    text-align: center;
 }
 
 .submit-button {
@@ -55,10 +57,10 @@ a:: hover {
 }
 
 .center {
-display: flex;
-margin-left: auto;
-margin-right: auto;
-flex-direction: column;
-justify-content: center;
-align-items:center;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

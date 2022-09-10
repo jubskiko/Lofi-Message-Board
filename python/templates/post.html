@@ -28,7 +28,6 @@
       {% if post.image != None %}
       <img src="{{ post.image }}" />
       {% endif %}
-      <h3>{{ post.title }}</h3>
       <p>{{ post.body }}</p>
       <h4>Replies</h4>
       <div id="replies">
@@ -37,10 +36,10 @@
         {% endfor %}
       </div>
       <div id="post_reply">
-        <form>
+        <form class="center">
           <textarea id="reply_body" name="body"></textarea><br>
         </form>
-        <button onclick="replyToThread()">Reply!</button>
+        <button class="center" onclick="replyToThread()">Reply!</button>
       </div>
     </div>
     </div>
