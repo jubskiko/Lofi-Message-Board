@@ -12,7 +12,25 @@
 <body>
 <div class="center">
     <h1>{{ post.title }}</h1>
-    {{ post.render()|safe }}
+    <div id="post">
+      {% if post.image != None %}
+      <img src="{{ post.image }}" />
+      {% endif %}
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.body }}</p>
+      <h4>Replies</h4>
+      <div id="replies">
+        {% for reply in post.replies %}
+        {{ reply.render()|safe }}<br>
+        {% endfor %}
+      </div>
+      <div id="post_reply">
+        <form method="post" action="/makereply/{{ post_id }}">
+          <textarea name="body"></textarea><br>
+          <input type="submit" class="submit-button">
+        </form>
+      </div>
+    </div>
     </div>
 </body>
 

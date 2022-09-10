@@ -39,10 +39,6 @@ class Topic:
         self.image = image
         self.replies = []
 
-    def render(self):
-        return render_template('post.partial.html', title=self.title, body=self.body, image=self.image,
-                               post_id=self.uuid, replies=self.replies)
-
     def reply(self, r: Reply):
         self.replies.append(r)
 
