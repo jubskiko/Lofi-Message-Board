@@ -7,6 +7,18 @@
     <link rel="stylesheet" href="../static/css/post.css">
     <link rel="icon" type="image/png" sizes="48x48" href="../static/favicon.png">
     <title>{{ site_title }}|{{ post.title }}</title>
+    <script type="text/javascript" src="../static/javascript/form.js"></script>
+    <script type="text/javascript">
+        function replyToThread() {
+            formContent = new FormData();
+            formContent.append('body', document.getElementById('reply_body').value)
+            if (formContent.get('body') !== '') {
+                sendForm("/makereply/{{ post.uuid }}", formContent);
+            } else {
+                alert('Can\'t send an empty reply!');
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -25,10 +37,10 @@
         {% endfor %}
       </div>
       <div id="post_reply">
-        <form method="post" action="/makereply/{{ post_id }}">
-          <textarea name="body"></textarea><br>
-          <input type="submit" class="submit-button">
+        <form>
+          <textarea id="reply_body" name="body"></textarea><br>
         </form>
+        <button onclick="replyToThread()">Reply!</button>
       </div>
     </div>
     </div>
